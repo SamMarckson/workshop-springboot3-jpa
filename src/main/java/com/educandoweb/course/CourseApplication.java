@@ -1,5 +1,4 @@
 package com.educandoweb.course;
-import __com.educandoweb.course.resources.UserResource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

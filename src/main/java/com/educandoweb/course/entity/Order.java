@@ -1,7 +1,5 @@
 package com.educandoweb.course.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -16,20 +14,22 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
     private Instant moment;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
 
+    private Integer orderStatus;
+
     public Order(){
     }
 
-    public Order(Integer id, Instant moment, User user) {
+    public Order(Integer id, Instant moment, User user, OrderStatus orderStatus) {
         this.id = id;
         this.moment = moment;
         this.client = user;
+        setOrderStatus(orderStatus);
     }
 
     public Integer getId() {
@@ -46,6 +46,16 @@ public class Order implements Serializable {
 
     public void setMoment(Instant moment) {
         this.moment = moment;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return OrderStatus.valueOf(orderStatus);
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        if(orderStatus != null) {
+            this.orderStatus = orderStatus.getCode();
+        }
     }
 
     public User getUser() {

@@ -37,11 +37,17 @@ public class UserController {
         return ResponseEntity.created(uri).body(obj);
     }
 
-    @DeleteMapping
-    @RequestMapping("del/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         userService.delByID(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<User> update(@PathVariable Integer id, @RequestBody User user){
+        user = userService.update(id, user);
+        return ResponseEntity.ok().body(user);
+    }
+
 
 }

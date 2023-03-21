@@ -1,5 +1,6 @@
 package com.educandoweb.course.entity;
 
+import com.educandoweb.course.entity.enum_.OrderStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;

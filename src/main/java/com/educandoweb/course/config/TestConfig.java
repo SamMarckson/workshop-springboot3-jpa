@@ -1,6 +1,7 @@
 package com.educandoweb.course.config;
 
 import com.educandoweb.course.entity.*;
+import com.educandoweb.course.entity.enum_.OrderStatus;
 import com.educandoweb.course.repository.CategoryRepository;
 import com.educandoweb.course.repository.OrderRepository;
 import com.educandoweb.course.repository.ProductRepository;
